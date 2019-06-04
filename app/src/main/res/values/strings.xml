@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">SampleMovieApp</string>
+
+
+    <string name="sample_movie_name">Guardian of galaxy 2</string>
+    <string name="movie_avg_vote">8.9/10</string>
+    <string name="movie_language">English </string>
+    <string name="vote_count">Vote count</string>
+    <string name="popularity">Popularity</string>
+    <string name="adult">Adult</string>
+    <!--<string name=""></string>-->
+    <!--<string name=""></string>-->
+    <!--<string name=""></string>-->
+
+</resources>

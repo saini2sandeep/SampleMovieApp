@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="movie"
+            type="com.example.samplemovieapp.database.entity.EntityMovie" />
+
+        <variable
+            name="movieClickListener"
+            type="com.example.samplemovieapp.view.home.HomeFragmentMovieListAdapter.MovieClickListener" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="200dp"
+        android:layout_height="300dp"
+        android:onClick="@{()->movieClickListener.onMovieClick(movie)}"
+        android:padding="@dimen/dimen_16">
+
+        <ImageView
+            android:id="@+id/movie_poster_iv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:foreground="@drawable/shadow_gradient"
+            android:scaleType="fitXY"
+            app:imageUrl="@{movie.posterPath}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline_horizontal_middle"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".7" />
+
+        <TextView
+            android:id="@+id/movie_title_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:paddingStart="@dimen/dimen_10"
+            android:paddingEnd="@dimen/dimen_10"
+            android:text="@{movie.title}"
+            android:textColor="@color/color_white"
+            android:textSize="@dimen/tv_gen_16"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/guideline_horizontal_middle"
+            tools:text="@string/sample_movie_name" />
+
+
+        <TextView
+            android:id="@+id/movie_language_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/dimen_10"
+            android:paddingEnd="@dimen/dimen_10"
+            android:text="@{movie.originalLanguage}"
+            android:textColor="@color/color_white"
+            android:textSize="@dimen/tv_gen_16"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/movie_vote_average_tv"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/movie_vote_average_tv"
+            tools:text="@string/movie_language" />
+
+        <TextView
+            android:id="@+id/movie_vote_average_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dimen_12"
+            android:paddingStart="@dimen/dimen_10"
+            android:paddingEnd="@dimen/dimen_10"
+            android:text="@{movie.voteAverage + `/10`}"
+            android:textColor="@color/color_white"
+            android:textSize="@dimen/tv_gen_16"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/favorite_button_cb"
+            app:layout_constraintEnd_toStartOf="@+id/favorite_button_cb"
+            app:layout_constraintTop_toTopOf="@+id/favorite_button_cb"
+            tools:text="@string/movie_avg_vote" />
+
+        <!--<ImageView-->
+        <!--android:id="@+id/favorite_button_iv"-->
+        <!--android:layout_width="@dimen/dimen_32"-->
+        <!--android:layout_height="@dimen/dimen_32"-->
+        <!--android:layout_margin="@dimen/dimen_16"-->
+        <!--app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:srcCompat="@drawable/ic_like_white" />-->
+
+
+        <CheckBox
+            android:id="@+id/favorite_button_cb"
+            android:layout_width="@dimen/dimen_32"
+            android:layout_height="@dimen/dimen_32"
+            android:layout_margin="@dimen/dimen_16"
+            android:background="@drawable/like_button_background"
+            android:button="@null"
+            android:gravity="center"
+            android:padding="@dimen/dimen_5"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/ic_like_white" />
+
+
+    </android.support.constraint.ConstraintLayout>
+
+</layout>
